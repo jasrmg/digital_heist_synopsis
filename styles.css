@@ -1,0 +1,229 @@
+body {
+  font-family: "Share Tech Mono", monospace;
+  background-color: #000;
+  color: #0f0;
+  overflow-x: hidden;
+}
+
+.terminal-text {
+  color: #0f0;
+  text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+}
+
+.red-text {
+  color: #f00;
+  text-shadow: 0 0 5px #f00, 0 0 10px #f00;
+}
+
+.white-text {
+  color: #fff;
+  text-shadow: 0 0 2px #fff;
+}
+
+.title {
+  font-size: 3rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.terminal-button {
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.terminal-button:hover {
+  background-color: #0f0;
+  color: #000;
+  box-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+}
+
+.terminal-button::before {
+  content: "> ";
+}
+
+.terminal-button::after {
+  content: "_";
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 #f00;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 #0f0;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim2 2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(61px, 9999px, 94px, 0);
+  }
+  20% {
+    clip: rect(92px, 9999px, 25px, 0);
+  }
+  40% {
+    clip: rect(47px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  80% {
+    clip: rect(15px, 9999px, 64px, 0);
+  }
+  100% {
+    clip: rect(53px, 9999px, 5px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(18px, 9999px, 57px, 0);
+  }
+  20% {
+    clip: rect(39px, 9999px, 78px, 0);
+  }
+  40% {
+    clip: rect(72px, 9999px, 21px, 0);
+  }
+  60% {
+    clip: rect(81px, 9999px, 38px, 0);
+  }
+  80% {
+    clip: rect(95px, 9999px, 68px, 0);
+  }
+  100% {
+    clip: rect(68px, 9999px, 62px, 0);
+  }
+}
+
+.screen-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 255, 0, 0.2);
+  display: none;
+  z-index: 100;
+}
+
+.terminal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 101;
+}
+
+.terminal-line {
+  margin: 5px 0;
+  width: 80%;
+  max-width: 600px;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 2s steps(40, end);
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.alert-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  border: 2px solid #f00;
+  padding: 20px;
+  z-index: 102;
+  display: none;
+  text-align: center;
+  box-shadow: 0 0 20px #f00;
+}
+
+.audio-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border: 1px solid #0f0;
+  color: #0f0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.audio-toggle:hover {
+  background-color: rgba(0, 255, 0, 0.2);
+}
+
+/* Scanlines effect */
+.scanlines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.2) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 98;
+  pointer-events: none;
+  opacity: 0.15;
+}
