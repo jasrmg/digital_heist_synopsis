@@ -28,8 +28,8 @@ Welcome to **Digital Heist** — a thrilling, digital-themed website that tells 
 ## 🌐 Live Demo
 
 👉 You can experience the **Digital Heist** website here:  
-🔗 [https://yourusername.github.io/digital-heist](https://yourusername.github.io/digital-heist)
-[https://digital-heist.netlify.app/]
+🔗 [https://digital-heist.netlify.app/]
+
 
 ---
 ## 🚀 How to Run It
